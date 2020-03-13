@@ -23,12 +23,20 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 ## Interview Questions
 
 Explain in detail the workings of a dynamic array:
+
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+To access an element in an array, the runtime complexity is O(1). To remove from the front, we have the runtime complexity of O(n) because we would have to move all the items in the rest of the array to the front. To remove from the back, the runtime complexity is O(1) and the space would be marked as no in use but we would not get rid of the space.
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
+We would have to find space to extend the storage size and allocate it towards the array.
+Then, we have to move all the items from the previous array to the new memory location. The runtime complexity is O(n) which would get worse if the current array size is big already.
 
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
- 
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+Blockchain is made up of blocks that have import information like: index, timestamp, transaction information, proof and previous_block's hash. The chains are connected by hashes such that the block contains the hash from the previous block and generates a hash for it's own block, which is included in the next block's 'previous_block' field. This  makes a blockchain very hard to modify because by the time a hacker would have changed the hash function for even the last block of the chain, the new block that would've been hashed would not have the new hash value that the hacker would have.
+
+
 
 ## Project Set Up
 

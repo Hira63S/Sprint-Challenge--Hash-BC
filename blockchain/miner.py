@@ -7,7 +7,7 @@ from uuid import uuid4
 
 from timeit import default_timer as timer
 
-import random
+from random import randint
 
 
 def proof_of_work(last_proof):
@@ -27,11 +27,11 @@ def proof_of_work(last_proof):
     # find a number p such that the last six digits of hash are equal to the first six digits
     # of the new hash
     # create a proof
-    proof = random.randint(10000, 100000000)
+    proof = randint(100000, 1000000)
     last_hash = hashlib.sha256(str(last_proof).encode()).hexdigest()
 
     while valid_proof(last_hash, proof) is False:
-        proof += random.randint(1, 1000)
+        proof += randint(1, 100)
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
